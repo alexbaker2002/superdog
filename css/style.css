@@ -1,0 +1,118 @@
+:root {
+    --primary-color: #282b2f;
+    --secondary-color: #FFC107;
+    --dark-color: #282b2f;
+    --white-color: #e9e9e9;
+
+}
+
+body {
+    padding-top: 73px;
+    color: var(--dark-color);
+
+}
+
+.main>.container {
+    padding: 60px 15px 0;
+    margin: auto;
+}
+
+.mainContainer {
+
+    overflow-y: scroll;
+    max-height: 75vh;
+    margin: auto;
+    width: 80%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+
+}
+
+
+#content {
+    min-height: 89vh;
+}
+
+.navbar {
+    background-color: var(--dark-color);
+
+}
+
+.nav-link {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--white-color) !important;
+}
+
+.nav-item>.active {
+    color: var(--white-color) !important;
+}
+
+.nav-item>.active:hover {
+    color: var(--secondary-color) !important;
+}
+
+
+
+
+
+.footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    min-height: 60px;
+}
+
+.footer .social>a {
+    color: (var(--white-color));
+}
+
+.footer .social>a:hover {
+    opacity: .9;
+    color: var(--secondary-color);
+}
+
+.footer #footerName {
+    color: var(--white-color);
+}
+
+.footer #footerLogo {
+    position: absolute;
+    padding: 5px;
+    width: 4rem;
+    bottom: 0;
+}
+
+
+.jsicon {
+    color: yellow;
+}
+
+.bsicon {
+    color: purple
+}
+
+.cssicon {
+    color: blue;
+}
+
+.htmlicon {
+    color: orangered
+}
+
+.checkList>li i {
+    color: var(--secondary-color);
+}
+
+.codeContainer {
+    overflow-y: scroll;
+    height: 35vh;
+}
+.codeInstructions{
+     overflow-y: scroll;
+     height: 35vh;
+}
