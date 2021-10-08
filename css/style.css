@@ -9,7 +9,8 @@
 body {
     padding-top: 73px;
     color: var(--dark-color);
-
+    background: rgb(254, 254, 254);
+    background: linear-gradient(172deg, rgba(254, 254, 254, 1) 0%, rgba(209, 212, 240, 1) 25%, rgba(190, 194, 212, 1) 50%, rgba(173, 178, 196, 1) 75%, rgba(156, 167, 212, 1) 100%);
 }
 
 .main>.container {
@@ -18,20 +19,16 @@ body {
 }
 
 .mainContainer {
+height:75vh;
+overflow-y: scroll;
+border: 5px solid;
+border-color: aqua;
+display:block;
 
-    overflow-y: scroll;
-    max-height: 75vh;
-    margin: auto;
-    width: 80%;
-    /*border: 3px solid green;*/
-    padding: 10px;
 
 }
 
 
-#content {
-    min-height: 89vh;
-}
 
 .navbar {
     background-color: var(--dark-color);
@@ -112,7 +109,19 @@ body {
     overflow-y: scroll;
     height: 35vh;
 }
-.codeInstructions{
-     overflow-y: scroll;
-     height: 35vh;
+
+.codeInstructions {
+    overflow-y: scroll;
+    height: 35vh;
+}
+
+.imageContainer {
+    background-image: url("/img/APPNAMELogo.png");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 5px solid;
+    width: 500px;
+    height: 500px;
 }
