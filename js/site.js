@@ -88,7 +88,7 @@ function buildDropDown() {
     eventDD.innerHTML = "";
     let ddTemplate = document.getElementById("city-DD-template");
 
-    let curEvents = events;
+    let curEvents = JSON.parse(localStorage.getItem("eventData")) || events;
     // get unique values from array
     let distinctEvents = [...new Set(curEvents.map((e) => e.city))];
     // grabs and copies the node of the template for editing
@@ -110,7 +110,8 @@ function buildDropDown() {
         eventDD.appendChild(ddItemNode);
 
     })
-
+    displayStats(events);
+    fillEventTable();
 
 }
 
@@ -120,7 +121,7 @@ function displayStats(filteredEvents) {
     let average = 0;
     let most = 0;
     let least = -1;
-// for events sent... grab each a sort out to the 4 vars
+    // for events sent... grab each a sort out to the 4 vars
     filteredEvents.forEach((e) => {
         let currentAttendance = e.attendance;
         total += currentAttendance;
@@ -128,19 +129,19 @@ function displayStats(filteredEvents) {
         if (most < currentAttendance) {
             most = currentAttendance;
         }
-        if (least > currentAttendance || least < 0 ) {
+        if (least > currentAttendance || least < 0) {
             least = currentAttendance;
         }
         average = total / filteredEvents.length;
     })
-// send to html
+    // send to html
     document.getElementById("total").innerHTML = total.toLocaleString();
     document.getElementById("most").innerHTML = most.toLocaleString();
     // write as average
     document.getElementById("average").innerHTML = average.toLocaleString(
         undefined, {
-            minimumFractionDigits:0,
-            maxFractionDigits:0
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
         }
     );
     document.getElementById("least").innerHTML = least.toLocaleString();
@@ -155,7 +156,7 @@ function getEvents(ddElement) {
     let cityName = ddElement.getAttribute("data-string");
     let filteredEvents = events;
     document.getElementById("statsHeader").innerHTML = `Stats for ${cityName} - `
-// if  the city is selected to All filter all cities
+    // if  the city is selected to All filter all cities
     if (cityName != "All") {
         filteredEvents = events.filter((item) => {
             if (item.city == cityName) {
@@ -163,6 +164,56 @@ function getEvents(ddElement) {
             }
         })
     }
-// call display stats
+    // call display stats
     displayStats(filteredEvents);
+
+}
+
+function fillEventTable() {
+    let eventTable = document.getElementById("eventBody");
+    //clear the table
+    eventTable.innerHTML = "";
+    let eventTemplate = document.getElementById("eventTableTemplate");
+    let curEvents = JSON.parse(localStorage.getItem("eventData")) || events;
+
+
+    curEvents.forEach((e) => {
+        let eventRow = document.importNode(eventTemplate.content, true);
+
+        eventCols = eventRow.querySelectorAll("td");
+        eventCols[0].textContent = e.event
+        eventCols[1].textContent = e.city
+        eventCols[2].textContent = e.state
+        eventCols[3].textContent = e.attendance
+        eventCols[4].textContent = new Date(e.date).toLocaleDateString();
+
+        eventBody.appendChild(eventRow);
+
+
+
+    })
+}
+
+
+
+function saveData() {
+    let curEvents = JSON.parse(localStorage.getItem("eventData")) || events;
+    let stateSelector = document.getElementById("addEventState");
+    let dateSelector = document.getElementById("addEventDate").value;
+    let eventDate2 = `${dateSelector} 00:00`;
+
+    let newEvent = {
+        event: document.getElementById("addEventName").value,
+        city: document.getElementById("addEventCity").value,
+        state: stateSelector.options[stateSelector.selectedIndex].text,
+        attendance: parseInt(document.getElementById("addEventAttendance").value, 10),
+        date: new Date(eventDate2).toLocaleDateString()
+    };
+
+    curEvents.push(newEvent);
+    localStorage.setItem("eventData", JSON.stringify(curEvents));
+
+    buildDropDown();
+    fillEventTable();
+
 }

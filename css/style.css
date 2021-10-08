@@ -11,6 +11,7 @@ body {
     color: var(--dark-color);
     background: rgb(254, 254, 254);
     background: linear-gradient(172deg, rgba(254, 254, 254, 1) 0%, rgba(209, 212, 240, 1) 25%, rgba(190, 194, 212, 1) 50%, rgba(173, 178, 196, 1) 75%, rgba(156, 167, 212, 1) 100%);
+ 
 }
 
 .main>.container {
@@ -19,11 +20,13 @@ body {
 }
 
 .mainContainer {
-height:75vh;
-overflow-y: scroll;
-border: 5px solid;
-border-color: aqua;
-display:block;
+    height: 86vh;
+    overflow-y: scroll;
+    border: 5px solid;
+    border-color: aqua;
+    display: block;
+   padding-left: 2rem;
+   padding-right: 2rem;
 
 
 }
