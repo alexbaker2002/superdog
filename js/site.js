@@ -154,7 +154,7 @@ function displayStats(filteredEvents) {
 // get events for selected city
 function getEvents(ddElement) {
     let cityName = ddElement.getAttribute("data-string");
-    let filteredEvents = events;
+    let filteredEvents = JSON.parse(localStorage.getItem("eventData")) || events;
     document.getElementById("statsHeader").innerHTML = `Stats for ${cityName} - `
     // if  the city is selected to All filter all cities
     if (cityName != "All") {
