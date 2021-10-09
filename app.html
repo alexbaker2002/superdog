@@ -105,28 +105,39 @@
                     <div class="imageContainer"></div>
                 </div>
             </div>
-            <div class="row mb-5">
-                <div class="col-12">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#eventModal" id="btnAdd"
-                        class="btn btn-outline-secondary btn-large m-2 btn-lg">Add</button>
+            <div class="container-fluid g-0 m-0 p-md-5">
+                <div class="row mb-5 ">
+                    <div class="col-12 p-0">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#eventModal" id="btnAdd"
+                            class="btn btn-outline-secondary btn-large m-2 btn-lg">Add</button>
+                    </div>
+                    <div class="row row-cols-1 d-flex flex-column justify-content-center resultsTableContainer g-sm-0">
+                        <div class="col-12 ">
+                            <div class="container-fluid p-1 m-0">
+                                <table class="table table-striped table-bordered border-dark border-2">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Attendance</th>
+                                            <th>Event Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="eventBody">
+                                        <!--Content Goes here-->
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-12">
-                    <table class="table table-striped">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Event Name</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Attendance</th>
-                                <th>Event Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="eventBody">
-                            <!--Content Goes here-->
-                        </tbody>
-                    </table>
-                </div>
+
             </div>
+
         </div>
     </main>
 
@@ -233,7 +244,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="addEventAttendance" class="form-label">Attendance</label>
-                            <input type="text" class="form-control" value=0 id="addEventAttendance" placeholder="Attendance">
+                            <input type="text" class="form-control" value=0 id="addEventAttendance"
+                                placeholder="Attendance">
                         </div>
                         <div class="mb-3">
                             <label for="addEventDate" class="form-label">Event Date</label>
@@ -243,8 +255,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="btnAddEvent" 
-                        class="btn btn-primary">Save
+                    <button type="button" id="btnAddEvent" data-bs-dismiss="modal" class="btn btn-primary">Save
                         changes</button>
                 </div>
             </div>
@@ -273,7 +284,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/site.js"></script>
     <script>
-         document.getElementById('btnAddEvent').addEventListener("click", saveData)
+        document.getElementById('btnAddEvent').addEventListener("click", saveData)
     </script>
 
 </body>

@@ -22,15 +22,14 @@ body {
 .mainContainer {
     height: 86vh;
     overflow-y: scroll;
-    border: 5px solid;
-    border-color: aqua;
+  
     display: block;
-   padding-left: 2rem;
-   padding-right: 2rem;
+  
+   padding-bottom:50px;
 
 
 }
-
+th,
 
 
 .navbar {
@@ -127,4 +126,13 @@ body {
     border: 5px solid;
     width: 500px;
     height: 500px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+.resultsTableContainer table tbody tr td {
+    font-size: 10px;
+}
+    
+  .resultsTableContainer table thead th {
+        font-size: 12px;
+    }
 }
