@@ -4,7 +4,7 @@
  - SuperDog Events displays data from comic cons. the site will show stats from the events
  - Change the logo to reflect the app name
 
- ![Tux, the Linux mascot](/img/APPNAMELogo.svg
+ ![Tux, the Linux mascot](/img/Logo.png
  )
 
  - Change the Code to reflect the code in the new app. **Don't** leave the sample code below.
